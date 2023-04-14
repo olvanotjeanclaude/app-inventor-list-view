@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="jquery.scrollTo.js"></script>
+    <link href="customListview.css" rel="stylesheet" />
+    <script>
+        $(document).on('click contextmenu', '.listview li', function () {
+           
+            $('.listview li').removeClass("background_selected");
+            $(this).addClass("background_selected");
+        });
+        function deleteitem() {
+            $(".listview .background_selected").slideUp(200, function () {
+                $(this).detach();
+            });
+        }
+        function scroolFocusitem(id) {
+            var b = $(".listview li[id='" + id + "']");
+            $(".listview").scrollTo(b, 100, {
+                onAfter: function () {
+                    requestAnimationFrame(function () {
+                        Ripple(b);
+                    });
+                }
+            });
+        }
+        function Ripple(x) {
+            var ripple = $('<div></div>');
+            // Set some initial CSS
+            ripple.css({
+                position: 'absolute',
+                width: "1px",
+                height: "1px",
+                'border-radius': "50%",
+                opacity: 1,
+                background: ['#FB8C00'][Math.floor(Math.random() * ['#FB8C00'].length)],
+                'max-height': $(x).height() + "px",
+                'max-width': $(x).width() + "px",
+                top: '50%',
+                left: '50%'
+            });
+            ripple.css("zIndex", 999999);
+            ripple.appendTo($(x));
+            // Additional CSS to be set at the end of the browser's execution queue
+            setTimeout(function () {
+                ripple.css({
+                    transform: 'scale(1000)',
+                    opacity: 0,
+                    transition: 'all ' + 450 + 'ms linear'
+                });
+            }.bind($(x)), 10);
+            //Remove ripple after it finished animating
+            setTimeout(function () {
+                ripple.remove();
+            }, 450);
+        }
+        //disable select document
+        function disableselect(e) {
+            return false;
+        }
+        function reEnable() {
+            return true;
+        }
+        document.onselectstart = new Function("return false");
+        if (window.sidebar) {
+            document.onmousedown = disableselect;
+            document.onclick = reEnable;
+        }
+    </script>
+</head>
+<body oncontextmenu="return false;"ontouchstart="">
+    <ul empty-text="no data" class="listview">
+        <li>
+            <ic icon="mail"></ic>
+            <headtitle>İsmail Sönmez</headtitle>
+            <subtitle>0(532) 000 00 00</subtitle>
+            <money>₺69.500,00</money>
+        </li>
+        <li>
+            <ic icon="person"></ic>
+            <headtitle>İsmail Sönmez</headtitle>
+            <subtitle>0(532) 000 00 00</subtitle>
+            <money>₺69.500,00</money>
+        </li>
+    </ul>
+</body>
+</html>

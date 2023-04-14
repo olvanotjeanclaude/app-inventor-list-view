@@ -1,0 +1,170 @@
+﻿.listview .background_selected {
+    background-color: #fbe7e7;
+}
+
+.listview {
+    vertical-align: text-top;
+    margin: 0;
+    padding: 0;
+    clear: both;
+    height: 100%;
+    width: 100%;
+}
+
+
+
+    .listview:empty::before {
+        font-family: 'Material Icons';
+        content: 'data_usage';
+        font-size: 60px;
+        color: #ededed;
+        width: 180px;
+        height: 40px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -90px;
+        margin-top: -22px;
+        text-align: center;
+    }
+
+    .listview:empty::after {
+        font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+        font-size: 12px;
+        content: attr(empty-text);
+        color: #ededed;
+        width: 180px;
+        height: auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -90px;
+        margin-top: 22px;
+        text-align: center;
+        line-height: 15px;
+    }
+
+    .listview > li {
+        position: relative;
+        height: 50px;
+        font-size: 12px;
+        background-color: #ffffff;
+        cursor: pointer;
+        overflow: hidden;
+        border-bottom: 1px solid #f8f8f8;
+        user-select: none;
+        -webkit-tap-highlight-color: rgba(232, 232, 232, 0.00);
+    }
+
+
+
+        .listview > li:hover {
+            background-color: rgba(238, 238, 238, 0.16);
+        }
+        .listview > li:focus {
+            background-color: #f6f6f6;
+        }
+        .listview > li ic {
+            position: absolute;
+            border-radius: 50%;
+            top: 5px;
+            left: 10px;
+            text-align: center;
+            background-color: #11698f;
+            color: rgb(255, 255, 255);
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+        }
+
+.selectlistview li ic {
+    width: 32px;
+    height: 32px;
+    border-radius: 20px;
+    top: 3px;
+    line-height: 32px
+}
+
+
+.listview > li ic:before {
+    font-family: 'Material Icons';
+    content: attr(icon);
+    font-size: 22px;
+    position: relative;
+    top: 8px;
+}
+
+
+
+
+
+
+.listview > li headtitle {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-size: 16px;
+    text-overflow: ellipsis;
+    position: relative;
+    top: 5px;
+    left: 60px;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    color: #454545;
+    text-transform: capitalize;
+    letter-spacing: -0.5px;
+    width: calc(100% - 50px);
+}
+
+
+
+.listview > li subtitle {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-size: 14px;
+    text-overflow: ellipsis;
+    position: relative;
+    top: 5px;
+    left: 60px;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    color: #b2b2b2;
+    width: 80%;
+    letter-spacing: -0.5px;
+    text-transform: capitalize;
+    width: calc(100% - 140px)
+}
+
+
+
+.listview > li ttr {
+    font-size: 12px;
+    color: #000000;
+    position: absolute;
+    right: 3px;
+    top: -4px;
+    line-height: 18px;
+    margin-right: 5px;
+    margin-top: 8px;
+    border-radius: 18px;
+    padding: 0 6px 0 3px;
+    text-indent: 3px;
+    color: #949494;
+}
+
+
+
+.listview > li money {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-size: 12px;
+    color: #000000;
+    position: absolute;
+    right: 3px;
+    top: 8px;
+    line-height: 18px;
+    margin-right: 5px;
+    margin-top: 10px;
+    border-radius: 18px;
+    padding: 0 6px 0 3px;
+    text-indent: 3px;
+    background-color: #d8d8d8;
+}
